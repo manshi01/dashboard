@@ -14,8 +14,10 @@ import Deposits from "@/components/Deposits";
 import Orders from "@/components/Orders";
 // import DashboardLayout from "@/components/DashboardLayout";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Header from "@/components/Header";
 export default function DashboardPage() {
-  return (
+  return (<>
+    <Header/>
     <DashboardLayout>
       <Box
         component="main"
@@ -54,5 +56,6 @@ export default function DashboardPage() {
         </Container>
       </Box>
     </DashboardLayout>
+    </>
   );
 }

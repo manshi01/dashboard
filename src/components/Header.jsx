@@ -1,15 +1,17 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
-import CustomDatePicker from './CustomDatePicker';
-import NavbarBreadcrumbs from './NavbarBreadcrumbs';
-import MenuButton from './MenuButton';
-import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
+// import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 
-import Search from './Search';
+// import CustomDatePicker from './CustomDatePicker';
+// import NavbarBreadcrumbs from './NavbarBreadcrumbs';
+// import MenuButton from './MenuButton';
+// import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
+// import Search from './Search';
 
 export default function Header() {
   return (
+
+    
     <Stack
       direction="row"
       sx={{
@@ -22,14 +24,14 @@ export default function Header() {
       }}
       spacing={2}
     >
-      <NavbarBreadcrumbs />
+      {/* <NavbarBreadcrumbs /> */}
       <Stack direction="row" sx={{ gap: 1 }}>
-        <Search />
+        {/* <Search />
         <CustomDatePicker />
         <MenuButton showBadge aria-label="Open notifications">
           <NotificationsRoundedIcon />
-        </MenuButton>
-        <ColorModeIconDropdown />
+        </MenuButton> */}
+        {/* <ColorModeIconDropdown /> */}
       </Stack>
     </Stack>
   );
