@@ -17,8 +17,9 @@ import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import Header from "@/components/Header";
 export default function DashboardPage() {
   return (<>
-    <Header/>
+
     <DashboardLayout>
+    
       <Box
         component="main"
         sx={{
@@ -31,6 +32,8 @@ export default function DashboardPage() {
           overflow: "auto",
         }}
       >
+
+        
         <Toolbar />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>

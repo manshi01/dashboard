@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import Header from "../Header";
 import { Menu, Dashboard, Settings } from "@mui/icons-material";
 
 const drawerWidth = 240;
@@ -53,6 +54,7 @@ export default function DashboardLayout({ children }) {
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
+        <Header/>
         <Toolbar>
           <IconButton color="inherit" edge="start" onClick={handleDrawerToggle}>
             <Menu />
