@@ -57,14 +57,14 @@ export default function DashboardLayout({ children }) {
         
       >
         <Header/>
-        <Toolbar>
+        {/* <Toolbar>
           <IconButton color="inherit" edge="start" onClick={handleDrawerToggle}>
             <Menu />
           </IconButton>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
             Dashboard
           </Typography>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       <Drawer
         variant="permanent"
