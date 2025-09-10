@@ -44,6 +44,11 @@ export default function DashboardPage() {
                 <ChartUserByCountry />
               </Paper>
             </Grid>
+             <Grid item xs={12} md={8} lg={9}>
+              <Paper sx={{ p: 2, display: "flex", flexDirection: "column", height: 240 }}>
+                <ChartUserByCountry />
+              </Paper>
+            </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column", height: 240 }}>
@@ -51,6 +56,16 @@ export default function DashboardPage() {
               </Paper>
             </Grid>
             {/* Recent Orders */}
+            <Grid item xs={12}>
+              <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                <Orders />
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                <Orders />
+              </Paper>
+            </Grid>
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
                 <Orders />
