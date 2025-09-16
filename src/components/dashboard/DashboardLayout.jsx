@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import {
   Box,
   Drawer,
@@ -37,14 +38,24 @@ export default function DashboardLayout({ children }) {
     setMobileOpen(!mobileOpen);
   };
 
-  // Sidebar menu
+  // Sidebar menu items with links
+  const sidebarMenu = [
+    { text: "Dashboard", icon: <Dashboard sx={{ color: "#0077b6" }} />, href: "/dashboard" },
+    { text: "My Profile", icon: <Person sx={{ color: "#0077b6" }} />, href: "/profile" },
+    { text: "Find Job", icon: <Search sx={{ color: "#0077b6" }} />, href: "/jobs" },
+    { text: "Applied Jobs", icon: <Work sx={{ color: "#0077b6" }} />, href: "/applied-jobs" },
+    { text: "Saved Jobs", icon: <FavoriteBorder sx={{ color: "#0077b6" }} />, href: "/saved-jobs" },
+    { text: "Messages", icon: <Message sx={{ color: "#0077b6" }} />, href: "/messages" },
+    { text: "Download CV", icon: <FileDownload sx={{ color: "#0077b6" }} />, href: "/download-cv" },
+    { text: "Settings", icon: <Settings sx={{ color: "#0077b6" }} />, href: "/settings" },
+  ];
+
   const drawer = (
     <div>
       <Toolbar>
         <Typography
           variant="h6"
           noWrap
-          component="div"
           sx={{ fontWeight: "bold", color: "#0077b6", textAlign: "center", width: "100%" }}
         >
           Talentmate
@@ -52,54 +63,14 @@ export default function DashboardLayout({ children }) {
       </Toolbar>
       <Divider />
       <List>
-        <ListItem button>
-          <ListItemIcon>
-            <Dashboard sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Person sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="My Profile" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Search sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Find Job" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Work sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Applied Jobs" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <FavoriteBorder sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Saved Jobs" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Message sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Messages" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <FileDownload sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Download CV" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Settings sx={{ color: "#0077b6" }} />
-          </ListItemIcon>
-          <ListItemText primary="Settings" />
-        </ListItem>
+        {sidebarMenu.map((item) => (
+          <Link href={item.href} key={item.text} passHref legacyBehavior>
+            <ListItem button component="a">
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </div>
   );
@@ -125,24 +96,36 @@ export default function DashboardLayout({ children }) {
             sx={{ display: { sm: "none" } }}
           >
             <Menu />
-
-            
           </IconButton>
 
           {/* Center Menu */}
           <Box sx={{ display: "flex", gap: 4 }}>
-            <Button color="inherit">HOME</Button>
-            <Button color="inherit">JOBS ▾</Button>
-            <Button color="inherit">PREMIUM JOBS</Button>
-            <Button color="inherit">REGISTER CV</Button>
+            <Link href="/" passHref legacyBehavior>
+              <Button component="a" color="inherit">HOME</Button>
+            </Link>
+            <Link href="/jobs" passHref legacyBehavior>
+              <Button component="a" color="inherit">JOBS ▾</Button>
+            </Link>
+            <Link href="/premium-jobs" passHref legacyBehavior>
+              <Button component="a" color="inherit">PREMIUM JOBS</Button>
+            </Link>
+            <Link href="/register-cv" passHref legacyBehavior>
+              <Button component="a" color="inherit">REGISTER CV</Button>
+            </Link>
           </Box>
 
           {/* Right - Signout + Profile */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-            <Button color="inherit" startIcon={<Logout />}>
-              SIGNOUT
-            </Button>
-            <Person sx={{ fontSize: 32, color: "#0077b6" }} />
+            <Link href="/logout" passHref legacyBehavior>
+              <Button component="a" color="inherit" startIcon={<Logout />}>
+                SIGNOUT
+              </Button>
+            </Link>
+            <Link href="/profile" passHref legacyBehavior>
+              <IconButton>
+                <Person sx={{ fontSize: 32, color: "#0077b6" }} />
+              </IconButton>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
@@ -165,10 +148,7 @@ export default function DashboardLayout({ children }) {
       </Drawer>
 
       {/* Page Content */}
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "#f5f5f5", p: 3, mt: 8 }}
-      >
+      <Box component="main" sx={{ flexGrow: 1, bgcolor: "#f5f5f5", p: 3, mt: 8 }}>
         {children}
       </Box>
     </Box>
