@@ -147,7 +147,7 @@ export default function DashboardLayout({ children }) {
         {drawer}
       </Drawer>
 
-      {/* Page Content */}
+      
       <Box component="main" sx={{ flexGrow: 1, bgcolor: "#f5f5f5", p: 3, mt: 8 }}>
         {children}
       </Box>
